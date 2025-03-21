@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>タグ作成ツール</title>
-	<meta charset="UTF-8">
-</head>
-<style>
+  <head>
+    <title>タグ作成ツール 新着</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <form action="tag.php" method="POST" class="flex flex-col w-[500px] mx-3">
+      <div class="mt-6 border border-black p-1">
+        <p class="font-bold">管理番号</p>
+        <textarea cols="50" rows="10" name="url" class="border border-black w-full"></textarea>
+      </div>
 
-table {
+      <div class="border-b border-l border-r border-black p-1 bg-slate-300">
+        <p class="font-bold">商品名</p>
+        <textarea cols="50" rows="10" name="name" class="border border-black w-full"></textarea>
+      </div>
 
-	border-collapse:	collapse;
-}
-
-
-td,th{
-	border:				1px solid #333333;
-	padding:			5px 10px;
-}
-
-tr:nth-of-type(2n) {
-	background-color:	#dddddd;
-}
-
-</style>
-<body>
-<form action="tag.php" method="POST">
-	<table>
-		<tr><th>管理番号</th><td><textarea cols="50" rows="10" name="url"></textarea></td></tr>
-		<tr><th>商品名</th><td><textarea cols="50" rows="10" name="name"></textarea></td></tr>
-	</table><br>
-<input type="submit" value="タグ作成">
-
-</form>
-
-</body>
+      <div class="mt-6">
+        <input type="submit" value="タグ作成" class="px-2 border border-black rounded-md bg-slate-100 cursor-pointer active:shadow-xl">
+      </div>
+    </form>
+  </body>
 </html>
