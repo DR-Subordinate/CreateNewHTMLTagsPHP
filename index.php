@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
+    <p class="my-3 mx-3 text-xl font-bold">新着</p>
     <form action="tag.php" method="POST" class="flex flex-col w-[500px] mx-3">
       <div class="mt-6 border border-black p-1">
         <p class="font-bold">管理番号</p>
