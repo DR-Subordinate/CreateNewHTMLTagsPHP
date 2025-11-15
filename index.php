@@ -14,7 +14,7 @@
         <textarea cols="50" rows="10" name="url" class="border border-black w-full"></textarea>
       </div>
 
-      <div class="border-b border-l border-r border-black p-1 bg-slate-300">
+      <div class="border-b border-l border-r border-black p-1 bg-red-400">
         <p class="font-bold">商品名</p>
         <textarea cols="50" rows="10" name="name" class="border border-black w-full"></textarea>
       </div>
