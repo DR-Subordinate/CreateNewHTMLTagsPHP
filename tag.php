@@ -9,7 +9,10 @@
 
 <body class="p-6">
   <div class="max-w-3xl mx-auto">
-    <p class="font-bold text-lg mb-2">HTMLタグ</p>
+    <div class="flex items-center gap-2 mb-2">
+      <p class="font-bold text-lg mb-2">HTMLタグ</p>
+      <button onclick="copyToClipboard('new', this)" class="mb-2 px-2 py-1 text-sm bg-lime-500 text-white rounded hover:bg-lime-600">コピー</button>
+    </div>
 
 <?php
 /*店舗URLを入力する▼*/
@@ -26,7 +29,7 @@ $itemname = explode( "\n", $_POST['name'] );
 $cnt = count( $link ) -1 ;
 ?>
 
-    <textarea rows="35" cols="100" class="w-full border border-black p-2">
+    <textarea name="new" rows="35" cols="100" class="w-full border border-black p-2">
 <?php for ($i = 0; $i <= $cnt; $i++) :?>
 <?php $link[$i] = str_replace(array("\r\n","\r","\n"), '', $link[$i]); ?>
 <?php
@@ -73,4 +76,33 @@ $cnt = count( $link ) -1 ;
     </textarea>
   </div>
 </body>
+  <script>
+    function copyToClipboard(textareaName, button) {
+      // Reset all other buttons first
+      const allButtons = document.querySelectorAll("button");
+      allButtons.forEach((btn) => {
+        if (btn !== button) {
+          btn.textContent = "コピー";
+          btn.classList.remove("bg-indigo-300", "hover:bg-indigo-400");
+          btn.classList.add("bg-lime-500", "hover:bg-lime-600");
+        }
+      });
+
+      // Get the textarea element
+      const textarea = document.querySelector(`textarea[name="${textareaName}"]`);
+
+      // Select the text and copy it
+      textarea.select();
+
+      // Copy the text
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        // Change button text to "コピーしました"
+        button.textContent = "コピーしました";
+        button.classList.remove("bg-lime-500", "hover:bg-lime-600");
+        button.classList.add("bg-indigo-300", "hover:bg-indigo-400");
+      }).catch((err) => {
+        console.error("Failed to copy text: ", err);
+      });
+    }
+  </script>
 </html>
